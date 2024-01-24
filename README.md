@@ -1,6 +1,6 @@
 # fox 🦊
 
-Quickest and easiest single file sharing *(light [`gitar`](https://github.com/ariary/gitar))*
+Quickest and easiest single file sharing needing only `curl` on remote *(light [`gitar`](https://github.com/ariary/gitar))*
 
 ## send
 
