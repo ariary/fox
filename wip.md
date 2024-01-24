@@ -1,5 +1,7 @@
 ## next steps
+* get first args and read file from it
 * copy paste things to clipboard
+* paste according curl command to clipboard
 * perform http requests
 * do the "find external hostname" function (for now only try ngrok endpoint to retrieve ngrok name otherwise 127.1
 * http server that we can kill
