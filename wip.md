@@ -5,5 +5,6 @@
 * http server that we can kill
   
 ## other ideas/notes
-* for receive: find curl command that send a file by pipe in it or curl < file
-* ultime alias: ngrok http 9292 &; fox ; kill -9 ngrok
+* ✔️ for receive: find curl command that send a file by pipe in it or curl < file
+(cf https://realguess.net/2015/08/23/curl-read-from-file-or-stdin/): `curl -XPOST --data-binary @- <`
+* ultime alias: `(ngrok http 9292 &); fox && kill -9 $(pidof ngrok)`
