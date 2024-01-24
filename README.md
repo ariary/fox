@@ -1,6 +1,6 @@
 # fox 🦊
 
-Quick and easy file sharing *(light [`gitar`](https://github.com/ariary/gitar))*
+Quickest and easiest single file sharing *(light [`gitar`](https://github.com/ariary/gitar))*
 
 ## send
 
