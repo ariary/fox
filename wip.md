@@ -4,7 +4,8 @@
 * paste according curl command to clipboard
 * perform http requests
 * do the "find external hostname" function (for now only try ngrok endpoint to retrieve ngrok name otherwise 127.1
-* http server that we can kill
+* http server that we can kill (after first request)
+* (brainstorm) time computing (+ stats see compared to usual maybe stored times in ~/.fox)
   
 ## other ideas/notes
 * ✔️ for receive: find curl command that send a file by pipe in it or curl < file
