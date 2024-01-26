@@ -3,9 +3,9 @@ import os
 import osproc
 import std/asynchttpserver
 import std/asyncdispatch
-import asyncnet, asyncdispatch
 import std/httpclient
 import std/json
+import std/mimetypes
 import std/strutils
 import std/strformat
 import system
@@ -34,21 +34,22 @@ proc getUrl(): string =
     client.close()
   "http://127.1:9292"
 
-proc sendFile(req: Request) {.async.} =
-  echo (req.reqMethod, req.url, req.headers)
-  let headers = {"Content-type": "text/plain; charset=utf-8"}
-  await req.respond(Http200, "Hello World", headers.newHttpHeaders())
+proc sendFile(req: Request, fullpath: string) {.async.} =
+  var ext = fullpath.splitFile.ext
+  if ext == "": ext = ".txt" else: ext = ext[1 .. ^1]
+  let mimetype = newMimetypes().getMimetype(ext.toLowerAscii)
+  var file = fullpath.readFile
+  await req.respond(Http200, file, {"Content-Type": mimetype}.newHttpHeaders())
 
 proc receiveFile(req: Request) {.async.} =
   writeFile(req.url.path.split('/')[^1],req.body)
-  let headers = {"Content-type": "text/plain; charset=utf-8"}
-  await req.respond(Http200, "🫡", headers.newHttpHeaders())
+  await req.respond(Http200, "🫡")
 
-proc foxServe {.async.} =
+proc foxServe(fullpath:string){.async.} =
   var server = newAsyncHttpServer()
   proc foxCallback(req: Request) {.async.} =
     if req.reqMethod == HttpGet:
-      await sendFile(req)
+      await sendFile(req,fullpath)
     else:
       await receiveFile(req)
   server.listen(Port(9292))
@@ -64,20 +65,17 @@ if args.len > 0 and not fileExists(args[0]):
     echo args[0], " is not a file!"
     quit(92)
 
-var sendFilename = if args.len > 0 : args[0].split('/')[^1] elif not isatty(stdin): "fox" else: ""
+var fullpath = if args.len > 0: args[0] else: ""
+var sendfilename = if fullpath.len > 0 : fullpath.split('/')[^1] elif not isatty(stdin): "fox" else: ""
 
-var command = getRemoteCommand(getUrl(),sendFilename)
+var command = getRemoteCommand(getUrl(),sendfilename)
 stdout.write copyCommand(command)  # echo nothing is copy/paste is handling
 
-
-waitFor foxServe()
-
+waitFor foxServe(fullpath)
 
 cursorUp 1
 eraseLine()
-if sendFilename.len != 0:
+if sendfilename.len != 0:
   styledEcho fgCyan, "sent! 🦊", resetStyle
 else:
   styledEcho fgGreen, "received! 🦊",resetStyle
-
-# Server function start a server and stop after first request received
