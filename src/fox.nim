@@ -79,3 +79,7 @@ if sendfilename.len != 0:
   styledEcho fgCyan, "sent! 🦊", resetStyle
 else:
   styledEcho fgGreen, "received! 🦊",resetStyle
+
+# Bonus
+# * try to retrieve fileame from command line (if send)
+# * (brainstorm) time computing (+ stats see compared to usual maybe stored times in ~/.fox)
