@@ -5,9 +5,10 @@
 * perform http requests
 * do the "find external hostname" function (for now only try ngrok endpoint to retrieve ngrok name otherwise 127.1
 * http server that we can kill (after first request)
+* Output: "📤 Sending filename...[dim] paste on remote" erase and print "sent 🦊" when completed
 
 Bonus
-*try to retrieve filebame from command line (if send)
+* try to retrieve filebame from command line (if send)
 * (brainstorm) time computing (+ stats see compared to usual maybe stored times in ~/.fox)
 
 
