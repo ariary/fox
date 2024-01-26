@@ -3,8 +3,8 @@
 * copy paste things to clipboard
 * paste according curl command to clipboard
 * perform http requests
-* try to retrieve filebame from command line (if send)
 * do the "find external hostname" function (for now only try ngrok endpoint to retrieve ngrok name otherwise 127.1
+* try to retrieve filebame from command line (if send)
 * http server that we can kill (after first request)
 * (brainstorm) time computing (+ stats see compared to usual maybe stored times in ~/.fox)
 
