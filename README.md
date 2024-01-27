@@ -1,8 +1,10 @@
-# fox 🦊
 
-Quickest and easiest single file sharing requiring only `curl` on remote *(light [`gitar`](https://github.com/ariary/gitar))*
-
-*In less than 100 lines of Nim code* 
+<div align=center>
+  <h1>fox</h1>
+  <img src=./IMG_4212.jpeg width=40%><br>
+  <strong>Quickest and easiest single file sharing requiring only <code>curl</code> on remote</strong><br>
+    <i>In less than 100 lines of Nim code</i>
+</div>
 
 ## send
 
