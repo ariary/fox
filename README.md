@@ -23,8 +23,6 @@ Then paste on target + append filename
 alias nfoxr='(ngrok http 9292 > /dev/null &); fox;kill -9 $(pgrep ngrok)'
 alias nfoxs='f(){ (ngrok http 9292 > /dev/null &); fox ${1};kill -9 $(pgrep ngrok);  unset -f f; }; f'
 ```
-> `💾` Support: MacOSX
->
-> `⚙️` Requirements: ngrok, pbpaste
+> `⚙️` Support: MacOSX (pbcopy)
 
 
